@@ -3,8 +3,8 @@
 const config = () => {
   return {
     "protocol": process.env.NODE_PROTOCOL || 'https',
-    "hostname": process.env.NODE_HOSTNAME || 'peaceful-chamber-94125',
-    "port": process.env.NODE_PORT || '80',
+    "hostname": process.env.NODE_HOSTNAME || 'smart-light-server.herokuapp.com',
+    "port": process.env.NODE_PORT || '3000',
     "env" : process.env.NODE_ENV || 'develop',
     "mock": process.env.MOCK_FLAG || 'false'
   }
