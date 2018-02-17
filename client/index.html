@@ -18,7 +18,10 @@
   <div class="card-panel">
     <ul class="collection with-header">
       <li class="collection-header">
-        <h4>Devices</h4>
+        <h4>
+          Devices connected
+          <span class="badge new" data-badge-caption="device">1</span>
+        </h4>
       </li>
       <li onclick="toggleLight(state)" class="collection-item">
         <div>LED
@@ -33,16 +36,13 @@
     </ul>
   </div>
 
-
-
-
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
 
   <script>
-    var socket = io.connect('http://192.168.86.114:3000');
+    var socket = io.connect('https://smart-light-server.herokuapp.com/');
   </script>
   <script>
     var state = false;
@@ -52,17 +52,16 @@
       document.getElementById("LEDSTAR").innerHTML = currentState ? 'star' : 'star_border'
       socket.emit('checkState', state);
       socket.on("akCheckState", function (status) {
-        console.log("Initial status : ", status?'ON':'OFF');
+        console.log("Initial status : ", status ? 'ON' : 'OFF');
         currentState = status;
         state = currentState;
         document.getElementById("LEDSTAR").innerHTML = currentState ? 'star' : 'star_border';
       });
     });
 
-
     function toggleLight(triger) {
       state = !triger;
-      console.log("Status : ", state?'ON':'OFF'); 
+      console.log("Status : ", state ? 'ON' : 'OFF');
       document.getElementById("LEDSTAR").innerHTML = state ? 'star' : 'star_border';
       socket.emit('stateChanged', state);
       socket.emit('checkState', state);
