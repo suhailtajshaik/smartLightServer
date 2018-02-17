@@ -2,7 +2,7 @@
   "name": "static-node-server",
   "version": "1.0.0",
   "description": "static node server",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
     "start": "npm install && node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
