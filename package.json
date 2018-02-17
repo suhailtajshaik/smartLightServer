@@ -1,6 +1,6 @@
 {
-  "name": "static-node-server",
-  "version": "1.0.0",
+  "name": "smart-light-server",
+  "version": "1.0.19",
   "description": "static node server",
   "main": "server/index.js",
   "scripts": {
