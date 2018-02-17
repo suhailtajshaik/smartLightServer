@@ -12,9 +12,9 @@ require('./routes')(app);
 
 
 const server = app.listen(config.port, function () {
-	var port = server.address().port;
+	var port = config.port;
 	console.log('\nExpress server listening on port ' + port + ', in ' + config.env + ' mode');
-	console.log("open http://localhost:" + port);
+	console.log("open" + config.protocol + "://" + config.hostname + ":" + port);
 })
 
 var io = require('socket.io').listen(server)
